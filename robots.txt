@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nina-wirtz.de/sitemap.xml
