@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style-v2.css">
 
 <script type="application/ld+json">
 {
@@ -72,21 +72,25 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-media">
-      <img src="assets/img/nina-lachend.jpg" alt="" loading="eager">
-      <div class="hero-scrim"></div>
-    </div>
-    <div class="wrap hero-content">
-      <p class="eyebrow">Verkaufsexpertin · Moderatorin · Markenbotschafterin</p>
-      <h1>NINA WIRTZ — VERKAUF. MARKEN. MENSCHEN.</h1>
-      <p class="lede">Seit über 20 Jahren verbinde ich vor der Kamera Produkte mit Menschen – mit Begeisterung,
-        Glaubwürdigkeit und einem feinen Gespür dafür, was Kunden wirklich erreicht.</p>
-      <a href="#expertise" class="btn btn-light">Mehr erfahren</a>
+    <div class="wrap hero-grid">
+      <div class="hero-media reveal">
+        <picture>
+          <source srcset="assets/img/hero-nina.webp" type="image/webp">
+          <img src="assets/img/hero-nina.jpg" alt="Nina Wirtz" width="752" height="1126" loading="eager">
+        </picture>
+      </div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Verkaufsexpertin · Moderatorin · Markenbotschafterin</p>
+        <h1>NINA WIRTZ — VERKAUF. MARKEN. MENSCHEN.</h1>
+        <p class="lede">Seit über 20 Jahren verbinde ich vor der Kamera Produkte mit Menschen – mit
+          Begeisterung, Glaubwürdigkeit und einem feinen Gespür dafür, was Kunden wirklich erreicht.</p>
+        <a href="#expertise" class="btn btn-dark">Mehr erfahren</a>
+      </div>
     </div>
   </section>
 
   <!-- KENNZAHLEN -->
-  <section class="section section-tint">
+  <section class="section section-tint reveal">
     <div class="wrap">
       <div class="stats">
         <div>
@@ -108,10 +112,20 @@
   <!-- ÜBER MICH -->
   <section class="section" id="ueber-mich">
     <div class="wrap two-col reverse">
-      <div>
-        <img src="assets/img/nina-portrait.jpg" alt="Nina Wirtz">
+      <div class="reveal">
+        <div class="photo-stack">
+          <picture>
+            <source srcset="assets/img/nina-editorial.webp" type="image/webp">
+            <img class="photo-stack-main" src="assets/img/nina-editorial.jpg" alt="Nina Wirtz">
+          </picture>
+          <div class="video-loop">
+            <video autoplay muted loop playsinline preload="none" poster="assets/img/nina-fashion-2-poster.jpg">
+              <source src="assets/video/nina-fashion-2.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
       </div>
-      <div>
+      <div class="reveal">
         <p class="kicker">Über mich</p>
         <h2>Verkauf ist eine Herzensangelegenheit</h2>
         <p>Nina Wirtz ist Verkaufsexpertin, Moderatorin und Markenbotschafterin. Seit über 20 Jahren steht sie
@@ -127,7 +141,7 @@
   </section>
 
   <!-- 3 SCHLÜSSEL -->
-  <section class="section section-tint">
+  <section class="section section-tint reveal">
     <div class="wrap">
       <p class="kicker center">3 Schlüssel des Verkaufstalents</p>
       <div class="icon-feature-grid">
@@ -153,21 +167,33 @@
   <!-- EXPERTISE -->
   <section class="section" id="expertise">
     <div class="wrap">
-      <p class="kicker center">Expertise</p>
-      <h2 class="center">Meine Expertise</h2>
-      <div class="icon-feature-grid">
-        <div class="icon-feature">
-          <img src="assets/img/illustration-fokus.png" alt="">
+      <p class="kicker center reveal">Expertise</p>
+      <h2 class="center reveal">Meine Expertise</h2>
+      <div class="expertise-grid">
+        <div class="expertise-card reveal">
+          <div class="video-loop">
+            <video autoplay muted loop playsinline preload="none" poster="assets/img/nina-fashion-1-poster.jpg">
+              <source src="assets/video/nina-fashion-1.mp4" type="video/mp4">
+            </video>
+          </div>
           <h3>Live &amp; TV</h3>
           <p>Über 20 Jahre Erfahrung vor der Kamera – von Fashion über Beauty bis Lifestyle.</p>
         </div>
-        <div class="icon-feature">
-          <img src="assets/img/illustration-herz.png" alt="">
+        <div class="expertise-card reveal">
+          <div class="video-loop">
+            <video autoplay muted loop playsinline preload="none" poster="assets/img/nina-fashion-4-poster.jpg">
+              <source src="assets/video/nina-fashion-4.mp4" type="video/mp4">
+            </video>
+          </div>
           <h3>Verkaufs- &amp; Markenberatung</h3>
           <p>Ich zeige Unternehmen und Marken, wie Produkte Menschen wirklich erreichen.</p>
         </div>
-        <div class="icon-feature">
-          <img src="assets/img/illustration-veraenderung.png" alt="">
+        <div class="expertise-card reveal">
+          <div class="video-loop">
+            <video autoplay muted loop playsinline preload="none" poster="assets/img/nina-fashion-3-poster.jpg">
+              <source src="assets/video/nina-fashion-3.mp4" type="video/mp4">
+            </video>
+          </div>
           <h3>Moderation &amp; Brand Collaborations</h3>
           <p>Professionelle Moderation und glaubwürdige Kooperationen für ausgewählte Marken.</p>
         </div>
@@ -178,7 +204,7 @@
   <!-- MODERATION & BRANDS -->
   <section class="section section-tint" id="moderation">
     <div class="wrap two-col">
-      <div>
+      <div class="reveal">
         <p class="kicker">Moderation &amp; Brands</p>
         <h2>Live ist mein Element</h2>
         <p>Seit mehr als zwei Jahrzehnten stehe ich im Homeshopping vor der Kamera. Fashion, Schuhe, Beauty und
@@ -186,8 +212,24 @@
           Live-TV hat mich gelehrt, innerhalb weniger Sekunden zu erkennen, welche Geschichte ein Produkt
           braucht – und wie aus Information Begehrlichkeit entsteht.</p>
       </div>
-      <div>
-        <img src="assets/img/nina-wickelkleid.jpg" alt="Nina Wirtz">
+      <div class="reveal">
+        <div class="video-gallery">
+          <div class="video-frame" style="aspect-ratio:9/16">
+            <video playsinline muted loop preload="metadata" poster="assets/img/nina-intro-poster.jpg">
+              <source src="assets/video/nina-intro.webm" type="video/webm">
+              <source src="assets/video/nina-intro.mp4" type="video/mp4">
+            </video>
+            <div class="video-play">
+              <span class="video-play-btn" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg>
+              </span>
+            </div>
+            <span class="video-mute-badge">
+              <svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 003.69-1.81L18.73 21 20 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+              Ton aus
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -195,10 +237,10 @@
   <!-- WIRTZ INTERIOR -->
   <section class="section" id="wirtz-interior">
     <div class="wrap two-col reverse">
-      <div>
-        <img src="assets/img/wirtz-interior-wohnzimmer.jpg" alt="Interior Design von Wirtz Interior">
+      <div class="reveal">
+        <img src="assets/img/wirtz-interior-wohnzimmer.jpg" alt="Interior Design von Wirtz Interior" style="border-radius:var(--radius); width:100%; object-fit:cover">
       </div>
-      <div>
+      <div class="reveal">
         <p class="kicker">Eine weitere Leidenschaft</p>
         <h2>Eine weitere Leidenschaft: Räume.</h2>
         <p>Neben ihrer Arbeit vor der Kamera gestaltet Nina gemeinsam mit ihrer Tochter Aimée bei Wirtz Interior
@@ -211,11 +253,11 @@
 
   <!-- KONTAKT / CTA -->
   <section class="section kontakt" id="kontakt">
-    <div class="wrap center">
+    <div class="wrap center reveal">
       <img src="assets/img/logo.png" alt="Nina Wirtz" class="kontakt-logo" width="130" height="44">
       <p class="kicker center">Kontakt</p>
       <h2 class="kontakt-title">Lassen Sie uns zusammenarbeiten.</h2>
-      <p style="color:#e5d6d4; max-width:600px; margin:0 auto 1.5rem">Sie suchen eine erfahrene Moderatorin,
+      <p style="color:#c8c8cc; max-width:600px; margin:0 auto 1.5rem">Sie suchen eine erfahrene Moderatorin,
         eine glaubwürdige Markenbotschafterin oder möchten Ihr Produkt verkaufsstärker positionieren? Ich freue
         mich über Anfragen von Unternehmen, Agenturen und Marken für ausgewählte Projekte und Kooperationen.</p>
       <p class="center" style="margin-top:1.5rem"><a href="kontakt.html" class="btn btn-light">Projekt anfragen</a></p>
@@ -252,6 +294,6 @@
   </div>
 </footer>
 
-<script src="assets/js/script.js"></script>
+<script src="assets/js/script-v2.js"></script>
 </body>
 </html>
