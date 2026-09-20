@@ -454,3 +454,64 @@ p{ margin: 0 0 1.1rem; color: var(--color-ink-soft); }
   .icon-feature-grid{ grid-template-columns: 1fr; }
   .footer-top{ grid-template-columns: 1fr; }
 }
+
+/* ---------- Organic image/text layout (mobile only, <= 900px) ---------- */
+@media (max-width: 900px){
+  /* Hero: full-bleed photo, headline directly on a dark gradient that carries on into the copy */
+  .hero{ padding: 0; background: var(--color-ink); }
+  .hero .hero-grid{ grid-template-columns: 1fr; gap: 0; padding: 0; max-width: 640px; margin: 0 auto; }
+  .hero .hero-media{ grid-area: 1 / 1; aspect-ratio: 2 / 3; max-width: none; margin: 0; border-radius: 0; }
+  .hero .hero-media::after{
+    box-shadow: none;
+    background: linear-gradient(to top, var(--color-ink) 0%, rgba(22,22,26,.94) 26%, rgba(22,22,26,.82) 46%, rgba(22,22,26,.5) 62%, rgba(22,22,26,0) 82%);
+  }
+  .hero .hero-copy{ display: contents; }
+  .hero .hero-head{ grid-area: 1 / 1; align-self: end; position: relative; z-index: 2; padding: 0 var(--wrap-pad) 1.6rem; }
+  .hero .hero-head .eyebrow{ margin-bottom: 1rem; color: #e2cd9f; }
+  .hero h1{ font-size: clamp(2.1rem, 9.4vw, 2.9rem); margin-bottom: 0; color: #fff; }
+  .hero .hero-copy .lede{ grid-area: 2 / 1; padding: .5rem var(--wrap-pad) 0; margin: 0; color: #cfcfd3; }
+  .hero .hero-copy .btn{ grid-area: 3 / 1; justify-self: start; margin: 1.5rem var(--wrap-pad) 3.25rem; background: #fff; color: var(--color-ink); }
+  .hero .hero-copy .btn:hover{ background: var(--color-accent-soft); }
+
+  /* Über mich: staggered, 80 % wide, bleeds off the right edge; the headline starts inside the photo's fade */
+  #ueber-mich .two-col{ display: block; }
+  #ueber-mich .two-col > .reveal:first-child{
+    position: relative; width: calc(80% + var(--wrap-pad));
+    margin: 0 calc(-1 * var(--wrap-pad)) 0 auto;
+  }
+  #ueber-mich .two-col > .reveal:first-child::after{
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to top, #fff 0%, rgba(255,255,255,.97) 30%, rgba(255,255,255,.62) 54%, rgba(255,255,255,0) 78%);
+  }
+  #ueber-mich .photo-stack-main{ display: block; border-radius: 0; box-shadow: none; aspect-ratio: 3 / 4; object-fit: cover; }
+  #ueber-mich .two-col > .reveal:last-child{ position: relative; z-index: 2; margin-top: -6.25rem; }
+  #ueber-mich .two-col > .reveal:last-child h2{ margin-bottom: 1.4rem; }
+
+  /* Expertise: title and line sit on the clip itself instead of in a block below it */
+  .expertise-card{ display: grid; grid-template-rows: 1fr auto auto; }
+  .expertise-card .video-loop{ grid-area: 1 / 1 / 4 / 2; aspect-ratio: 3 / 5; margin-bottom: 0; }
+  .expertise-card .video-loop::after{
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to top, rgba(22,22,26,.94) 0%, rgba(22,22,26,.86) 32%, rgba(22,22,26,.5) 56%, rgba(22,22,26,0) 80%);
+  }
+  .expertise-card h3, .expertise-card p{ position: relative; z-index: 2; margin: 0; padding: 0 1.1rem; color: #fff; }
+  .expertise-card h3{ grid-area: 2 / 1; margin-bottom: .45rem; }
+  .expertise-card p{ grid-area: 3 / 1; padding-bottom: 1.25rem; color: rgba(255,255,255,.88); font-size: .88rem; line-height: 1.55; }
+
+  /* Wirtz Interior: 86 % wide, bleeds off the left edge; kicker and headline sit on the photo, copy continues below */
+  #wirtz-interior .two-col{ display: grid; grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto auto auto auto; gap: 0; }
+  #wirtz-interior .two-col > .reveal:first-child{
+    grid-area: 1 / 1 / 4 / 2; position: relative; width: calc(86% + var(--wrap-pad));
+    margin: 0 auto 0 calc(-1 * var(--wrap-pad));
+  }
+  #wirtz-interior .two-col > .reveal:first-child::after{
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to top, rgba(22,22,26,.92) 0%, rgba(22,22,26,.85) 32%, rgba(22,22,26,.5) 58%, rgba(22,22,26,0) 82%);
+  }
+  #wirtz-interior img{ display: block; aspect-ratio: 1 / 1; border-radius: 0; }
+  #wirtz-interior .two-col > .reveal:last-child{ display: contents; }
+  #wirtz-interior .kicker{ grid-area: 2 / 1; position: relative; z-index: 2; margin: 0 0 .5rem; width: 82%; color: #e2cd9f; }
+  #wirtz-interior h2{ grid-area: 3 / 1; position: relative; z-index: 2; margin: 0; padding-bottom: 1.5rem; width: 82%; color: #fff; font-size: 1.6rem; }
+  #wirtz-interior .two-col > .reveal:last-child > p:not(.kicker){ grid-area: 4 / 1; margin: 1.75rem 0 0; }
+  #wirtz-interior .btn{ grid-area: 5 / 1; justify-self: start; margin-top: .5rem; }
+}
