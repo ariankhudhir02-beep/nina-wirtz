@@ -89,3 +89,69 @@ document.querySelectorAll('.video-frame').forEach((frame) => {
   });
   video.addEventListener('ended', () => frame.classList.remove('is-playing'));
 });
+
+// Expertise carousel (mobile): one dot per card, kept in sync with the scroll position.
+const expertiseCarousel = document.querySelector('.expertise-carousel');
+if (expertiseCarousel) {
+  const track = expertiseCarousel.querySelector('.expertise-grid');
+  const cards = Array.from(track.children);
+  const dotsWrap = document.createElement('div');
+  dotsWrap.className = 'carousel-dots';
+
+  const cardOffset = (card) => {
+    const pad = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+    return card.getBoundingClientRect().left - track.getBoundingClientRect().left - pad;
+  };
+
+  const dots = cards.map((card, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'carousel-dot';
+    dot.setAttribute('aria-label', `Karte ${i + 1} von ${cards.length}`);
+    dot.addEventListener('click', () => {
+      track.scrollTo({ left: track.scrollLeft + cardOffset(card), behavior: 'smooth' });
+    });
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
+  expertiseCarousel.appendChild(dotsWrap);
+
+  const updateDots = () => {
+    const max = track.scrollWidth - track.clientWidth;
+    let active = 0;
+    if (max > 2 && track.scrollLeft >= max - 2) {
+      active = cards.length - 1;
+    } else {
+      let best = Infinity;
+      cards.forEach((card, i) => {
+        const d = Math.abs(cardOffset(card));
+        if (d < best) { best = d; active = i; }
+      });
+    }
+    dots.forEach((dot, i) => dot.setAttribute('aria-current', i === active ? 'true' : 'false'));
+  };
+
+  let scrollTick = false;
+  track.addEventListener('scroll', () => {
+    if (scrollTick) return;
+    scrollTick = true;
+    requestAnimationFrame(() => { scrollTick = false; updateDots(); });
+  }, { passive: true });
+  window.addEventListener('resize', updateDots);
+  updateDots();
+}
+
+// Ambient loops: only the clip that is mostly in view plays (and loads); the rest pause.
+const ambientLoops = document.querySelectorAll('.video-loop video');
+if (ambientLoops.length && 'IntersectionObserver' in window) {
+  const loopObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
+      if (entry.intersectionRatio >= 0.5) video.play().catch(() => {});
+      else video.pause();
+    });
+  }, { threshold: 0.5 });
+  ambientLoops.forEach((video) => loopObserver.observe(video));
+} else {
+  ambientLoops.forEach((video) => video.play().catch(() => {}));
+}
