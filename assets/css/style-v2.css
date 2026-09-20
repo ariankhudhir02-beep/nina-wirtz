@@ -48,6 +48,7 @@ img{ max-width: 100%; display: block; }
 }
 
 h1, h2, h3{
+  overflow-wrap: break-word;
   font-family: var(--font-display);
   font-weight: 400;
   line-height: 1.14;
@@ -119,6 +120,7 @@ p{ margin: 0 0 1.1rem; color: var(--color-ink-soft); }
   display: flex; align-items: center; justify-content: space-between;
   padding-top: .85rem; padding-bottom: .85rem;
 }
+.logo{ display: flex; align-items: center; min-height: 44px; }
 .logo img{ height: 32px; width: auto; }
 
 .primary-nav{ display: flex; align-items: center; gap: 2.25rem; }
@@ -140,7 +142,7 @@ p{ margin: 0 0 1.1rem; color: var(--color-ink-soft); }
 .nav-toggle{
   display: none;
   flex-direction: column; justify-content: center; gap: 5px;
-  width: 40px; height: 40px;
+  width: 44px; height: 44px;
   background: none; border: none; cursor: pointer;
 }
 .nav-toggle span{ display: block; height: 1px; width: 100%; background: var(--color-ink); }
@@ -185,7 +187,7 @@ p{ margin: 0 0 1.1rem; color: var(--color-ink-soft); }
 .page-hero .lede{ max-width: 620px; margin: 0 auto; font-size: 1.1rem; }
 
 /* ---------- Sections ---------- */
-.section{ padding: clamp(5rem, 10vw, 8.5rem) 0; }
+.section{ padding: clamp(4rem, 10vw, 8.5rem) 0; }
 .section-tint{ background: var(--color-bg-tint); }
 
 .two-col{
@@ -279,7 +281,7 @@ p{ margin: 0 0 1.1rem; color: var(--color-ink-soft); }
 
 .carousel-dots{ display: none; justify-content: center; gap: .25rem; margin-top: 1.5rem; }
 .carousel-dot{
-  width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer;
+  width: 32px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
 }
 .carousel-dot::before{
@@ -341,7 +343,7 @@ p{ margin: 0 0 1.1rem; color: var(--color-ink-soft); }
 
 /* ---------- Kontakt ---------- */
 .kontakt{ background: var(--color-ink); color: #fff; }
-.kontakt-logo{ margin: 0 auto 1.5rem; filter: invert(1) brightness(1.8); }
+.kontakt-logo{ height: 44px; width: auto; margin: 0 auto 1.5rem; filter: invert(1) brightness(1.8); }
 .kontakt .kicker{ color: var(--color-accent-soft); }
 .kontakt-title{ color: #fff; max-width: 560px; margin-left: auto; margin-right: auto; }
 
@@ -363,15 +365,15 @@ p{ margin: 0 0 1.1rem; color: var(--color-ink-soft); }
 .contact-list li{ color: #c8c8cc; font-size: 1.02rem; }
 
 /* ---------- 404 ---------- */
-.error-page{ text-align: center; padding: clamp(5rem, 12vw, 8rem) 0; }
+.error-page{ text-align: center; padding: clamp(5rem, 12vw, 8rem) var(--wrap-pad); }
 .error-page .error-code{ font-family: var(--font-display); font-size: 6rem; color: var(--color-accent); margin: 0; line-height: 1; }
 .error-links{ list-style: none; padding: 0; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
 .error-links a{ color: var(--color-ink); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--color-line); padding-bottom: 2px; }
 .error-links a:hover{ color: var(--color-accent); border-color: var(--color-accent); }
 
 /* ---------- Legal pages ---------- */
-.legal{ max-width: 720px; margin: 0 auto; padding: clamp(4rem,8vw,6rem) 0; }
-.legal h1{ font-size: 2.2rem; }
+.legal{ max-width: calc(720px + 2 * var(--wrap-pad)); margin: 0 auto; padding: clamp(4rem,8vw,6rem) var(--wrap-pad); overflow-wrap: break-word; }
+.legal h1{ font-size: clamp(1.6rem, 7.4vw, 2.2rem); }
 .legal h2{ font-size: 1.3rem; margin-top: 2.5rem; }
 .legal p{ color: var(--color-ink-soft); }
 .legal a{ color: var(--color-accent); }
@@ -426,7 +428,7 @@ p{ margin: 0 0 1.1rem; color: var(--color-ink-soft); }
 @media (max-width: 720px){
   .nav-toggle{ display: flex; }
   .primary-nav{
-    position: fixed; inset: 64px 0 0 0;
+    position: fixed; inset: 72px 0 0 0;
     background: var(--color-bg);
     flex-direction: column; align-items: flex-start;
     padding: 2rem clamp(1.5rem, 6vw, 4rem);
@@ -436,8 +438,19 @@ p{ margin: 0 0 1.1rem; color: var(--color-ink-soft); }
     transition: opacity .2s ease, transform .2s ease, visibility .2s;
   }
   .primary-nav.is-open{ opacity: 1; visibility: visible; transform: translateY(0); }
-  .primary-nav a{ font-size: 1.2rem; }
-  .primary-nav .nav-cta{ align-self: flex-start; }
+  .primary-nav a{ font-size: 1.2rem; padding: .5rem 0; }
+  .primary-nav .nav-cta{ align-self: flex-start; padding: .8rem 1.4rem; }
+  body.nav-open{ overflow: hidden; }
+  h1.kontakt-title{ font-size: clamp(1.9rem, 8.4vw, 2.6rem); }
+  .contact-list a{
+    display: inline-block; padding: .7rem 0; border-bottom: 0;
+    text-decoration: underline; text-decoration-color: rgba(255,255,255,.3); text-underline-offset: .28em;
+  }
+  .footer-col ul{ gap: 0; }
+  .footer-col a, .footer-social a{ display: inline-block; padding: .7rem 0; }
+  .footer-social{ gap: 0 1.5rem; }
+  .error-links{ gap: .25rem 1rem; }
+  .error-links a{ display: inline-block; padding: .7rem .25rem; }
   .icon-feature-grid{ grid-template-columns: 1fr; }
   .footer-top{ grid-template-columns: 1fr; }
 }

@@ -8,12 +8,14 @@ if (navToggle && primaryNav) {
   navToggle.addEventListener('click', () => {
     const isOpen = primaryNav.classList.toggle('is-open');
     navToggle.setAttribute('aria-expanded', String(isOpen));
+    document.body.classList.toggle('nav-open', isOpen);
   });
 
   primaryNav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       primaryNav.classList.remove('is-open');
       navToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
     });
   });
 }
