@@ -316,7 +316,7 @@ p{ margin: 0 0 1.1rem; color: var(--color-ink-soft); }
 .video-frame .video-play-btn svg{ width: 18px; height: 18px; margin-left: 3px; fill: var(--color-ink); }
 .video-frame:hover .video-play-btn{ transform: scale(1.06); background: #fff; }
 .video-frame.is-playing .video-play{ opacity: 0; pointer-events: none; }
-.video-frame .video-mute-badge{
+.video-frame .video-sound-badge{
   position: absolute; bottom: 1rem; right: 1rem;
   display: flex; align-items: center; gap: .4rem;
   background: rgba(22,22,26,.55); color: #fff;
@@ -324,7 +324,7 @@ p{ margin: 0 0 1.1rem; color: var(--color-ink-soft); }
   padding: .4rem .7rem; border-radius: 999px;
   backdrop-filter: blur(6px);
 }
-.video-frame .video-mute-badge svg{ width: 12px; height: 12px; fill: #fff; }
+.video-frame .video-sound-badge svg{ width: 12px; height: 12px; fill: #fff; }
 
 /* ---------- Kontakt ---------- */
 .kontakt{ background: var(--color-ink); color: #fff; }

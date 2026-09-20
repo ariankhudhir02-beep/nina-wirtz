@@ -71,13 +71,12 @@ if (revealEls.length && 'IntersectionObserver' in window) {
   revealEls.forEach((el) => el.classList.add('is-visible'));
 }
 
-// Custom video player — muted, click-to-play with a minimal play button.
+// Custom video player — click-to-play (with sound) with a minimal play button.
 // Falls back gracefully: the <video> already has controls/poster, so it
 // works even if this script fails to run.
 document.querySelectorAll('.video-frame').forEach((frame) => {
   const video = frame.querySelector('video');
   if (!video) return;
-  video.muted = true;
   const play = () => {
     video.play().then(() => frame.classList.add('is-playing')).catch(() => {});
   };
